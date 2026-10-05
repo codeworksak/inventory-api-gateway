@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: inventory-api-gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: catalog-route
+              uri: http://localhost:8081
+              predicates:
+                - path=/catalog/**
+            - id: cart-route
+              uri: http://localhost:8082
+              predicates:
+                - path=/cart/**
+            - id: inventory-route
+              uri: http://localhost:8083
+              predicates:
+                - path=/inventory/**
+            - id: order-route
+              uri: http://localhost:8084
+              predicates:
+                - path=/orders/**
+
+server:
+  port: 8085
