@@ -7,19 +7,23 @@ spring:
         webmvc:
           routes:
             - id: catalog-route
-              uri: http://localhost:8081
+              #uri: http://172.17.0.9:8081
+              uri: http://${CATALOG_ROUTE}:${CATALOG_PORT}
               predicates:
                 - path=/catalog/**
             - id: cart-route
-              uri: http://localhost:8082
+#              uri: http://172.17.0.6:8082
+              uri: http://${CART_ROUTE}:${CART_PORT}
               predicates:
                 - path=/cart/**
             - id: inventory-route
-              uri: http://localhost:8083
+#              uri: http://172.17.0.5:8083
+              uri: http://${INVENTORY_ROUTE}:${INV_PORT}
               predicates:
                 - path=/inventory/**
             - id: order-route
-              uri: http://localhost:8084
+#              uri: http://172.17.0.8:8084
+              uri: http://${ORDER_ROUTE}:${ORDER_PORT}
               predicates:
                 - path=/orders/**
 
